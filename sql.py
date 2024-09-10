@@ -4,6 +4,8 @@ import mysql.connector
 from mysql.connector import Error
 from dotenv import load_dotenv
 
+app = Flask(__name__)
+
 # Carrega as variáveis de ambiente do arquivo .cred (se disponível)
 load_dotenv('.cred')
 
@@ -30,10 +32,6 @@ def connect_db():
         # Em caso de erro, imprime a mensagem de erro
         print(f"Erro: {err}")
         return None
-
-
-app = Flask(__name__)
-
 
 @app.route('/', methods=['GET'])
 def index():
